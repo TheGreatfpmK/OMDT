@@ -15,11 +15,15 @@ class MarkovDecisionProcess:
         observations: np.ndarray,
         feature_names=None,
         action_names=None,
+        name="mdp",
+        path="environments/",
     ):
         self.trans_probs = trans_probs
         self.rewards = rewards
         self.initial_state_p = initial_state_p
         self.observations = observations
+        self.name = name
+        self.path = path
 
         # trans_probs and rewards have axes: state, next_state, action
         # observations has axes: state, feature

@@ -328,7 +328,11 @@ class OmdtSolver:
             # print(f"Ratio: {self.model_.objVal / optimal_value:.3f}")
 
         optimal = self.model_.Status == GRB.OPTIMAL
-        optimal_value = np.dot(mdp.initial_state_p, self.optimal_values)
+
+        if self.optimal_values is not None:
+            optimal_value = np.dot(mdp.initial_state_p, self.optimal_values)
+        else:
+            optimal_value = None
 
         self.optimal_ = optimal
         self.objective_ = self.model_.ObjVal
@@ -381,8 +385,9 @@ class OmdtSolver:
         self,
         mdp,
     ):
-        self.optimal_values = mdp.value_iteration(gamma=self.gamma)
-        self.min_values = mdp.value_iteration(gamma=self.gamma, minimize=True)
+        self.optimal_values = None
+        # self.optimal_values = mdp.value_iteration(gamma=self.gamma)
+        # self.min_values = mdp.value_iteration(gamma=self.gamma, minimize=True)
 
         self.trees_ = []
         self.trees_optimal_ = []
