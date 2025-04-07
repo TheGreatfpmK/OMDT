@@ -460,10 +460,10 @@ with open(result_filename, "a") as file:
     else:
         if write_header:
             file.write(
-                "method,mdp,seed,time_limit,max_depth,runtime,objective,bound,depth,n_nodes,optimal\n"
+                "model,max_depth,omdt time,omdt best,omdt bound,omdt depth,omdt nodes\n"
             )
 
         depth_str = args.max_depth if args.max_depth else ""
         file.write(
-            f"{args.algorithm},{args.env_name},{args.seed},{args.time_limit},{depth_str},{runtime},{objective},{bound},{depth},{n_nodes},{optimal}\n"
+            f"{args.env_name},{depth_str},{runtime},{objective},{bound},{depth},{n_nodes}\n"
         )
