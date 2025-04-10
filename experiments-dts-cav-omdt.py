@@ -1,0 +1,97 @@
+#!/home/may/phd/storm/venv/bin/python
+
+import os
+import subprocess
+import resource
+import shutil
+import sys
+import re
+import click
+import math
+import concurrent.futures
+
+date="01-21"
+experiment_group_name = f"{date}-omdt"
+
+new_models = False
+
+##### benchmarks evaluation ######
+
+def set_memory_limit(maxmem_mb):
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (maxmem_mb*1024*1024, hard))
+
+@click.command()
+@click.option('--omdt-dir', type=str, default="/home/may/synthesis", show_default=True, help='Path to the Paynt root folder.')
+@click.option('--models-dir', type=str, default="/home/may/synthesis/models/cav", show_default=True, help='Path to the models folder.')
+# @click.option('--paynt-dir', type=str, default="/opt/paynt", show_default=True, help='Path to the Paynt root folder.')
+@click.option('--workers', type=int, default=4, show_default=True, help='Number of parallel tests.')
+@click.option('--timeout', type=int, default=1200, show_default=True, help='Time limit for abstraction refinement (per model), seconds.')
+@click.option('--maxmem', type=int, default=16, show_default=True, help='Memory limit, GB.')
+@click.option('--output', type=str, default="logs", show_default=True, help='Name for the output logs folder.')
+@click.option('--experiment-name', type=str, default=None, show_default=True, help='Name of the experiments.')
+@click.option('--depth-min', type=int, default=1, show_default=True, help='Minimal depth for the exeperiments.')
+@click.option('--depth-max', type=int, default=8, show_default=True, help='Maximal depth for the exeperiments.')
+@click.option('--show-only', is_flag=True, default=False, show_default=True, help='Show results only.')
+@click.option('--generate-csv', is_flag=True, default=False, show_default=True, help='Generate CSV file with results.')
+@click.option('--restart', is_flag=True, help='Re-run all benchmarks.')
+def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name, depth_min, depth_max, show_only, generate_csv, restart):
+
+
+    profiling = ""
+    # profiling = " --profiling"
+    # tree_enumeration = ""
+    tree_enumeration = " --tree-enumeration"
+    if experiment_name is not None:
+        experiment_group_name = experiment_name
+
+    models = [ f.path.split('/')[-1] for f in os.scandir(models_dir) if f.is_dir() ]
+
+    different_gamma = {"consensus-3-32" : 0.9999, "philosophers-4": 0.99, "rabin-4": 0.99}
+    qcomp_models = ["consensus-3-32", "csma-2-4", "firewire-3", "ij-10", "pnueli-zuck-3", "philosophers-4", "rabin-4", "resource-gathering-5", "wlan-1-2"]
+
+    for model in models:
+        model_tasks = []
+        for d in range(depth_min,depth_max+1):
+            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"logs/{experiment_group_name}/{model}/log-depth-{d}.log")
+            model_tasks.append(task)
+
+        preexec_fn = lambda: set_memory_limit(maxmem*1024)
+
+        if workers == 1:
+            for task in model_tasks:
+                command, log_file = task
+                if os.path.exists(log_file) and not restart:
+                    print(f"Log file {log_file} already exists. Skipping task.")
+                    continue
+                print(task, "started")
+                try:
+                    result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100, capture_output=True)
+                    with open(log_file, 'w') as f:
+                        f.write(result.stdout.decode())
+                        f.write(result.stderr.decode())
+
+                except Exception as e:
+                    print(f"Error running task for model {model}: {e}")
+        else:
+            with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+                for task in model_tasks:
+                    command, log_file = task
+                    if os.path.exists(log_file) and not restart:
+                        print(f"Log file {log_file} already exists. Skipping task.")
+                        continue
+                    print(task, "started")
+                    try:
+                        result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100)
+                        with open(log_file, 'w') as f:
+                            f.write(result.stdout.decode())
+                            f.write(result.stderr.decode())
+                    except Exception as e:
+                        print(f"Error running task for model {model}: {e}")
+
+        print(f"Finished running tasks for model {model}")
+        
+
+
+if __name__ == '__main__':
+    main()
