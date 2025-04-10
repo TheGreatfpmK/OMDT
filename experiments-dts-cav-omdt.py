@@ -82,7 +82,7 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
                         continue
                     print(task, "started")
                     try:
-                        result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100)
+                        result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100, capture_output=True)
                         with open(log_file, 'w') as f:
                             f.write(result.stdout.decode())
                             f.write(result.stderr.decode())
