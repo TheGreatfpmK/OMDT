@@ -45,7 +45,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--output_dir",
-    default="experiments/out-philosophers-4/",
+    default="/opt/cav25-experiments/logs/",
     type=str,
     help="base directory for outputting files, files are created under out/environment/",
 )

@@ -53,7 +53,7 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
     for model in models:
         model_tasks = []
         for d in range(depth_min,depth_max+1):
-            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"logs/{experiment_group_name}/{model}/log-depth-{d}.log")
+            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/logs/omdt-{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/logs/omdt-{experiment_group_name}/{model}/log-depth-{d}.log")
             model_tasks.append(task)
 
         preexec_fn = lambda: set_memory_limit(maxmem*1024)
