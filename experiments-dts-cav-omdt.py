@@ -50,12 +50,15 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
     different_gamma = {"consensus-3-32" : 0.9999, "philosophers-4": 0.99, "rabin-4": 0.99}
     qcomp_models = ["consensus-3-32", "csma-2-4", "firewire-3", "ij-10", "pnueli-zuck-3", "philosophers-4", "rabin-4", "resource-gathering-5", "wlan-1-2"]
 
+    all_log_paths = []
+
     model_count = 1
     for model in models:
         model_tasks = []
         for d in range(depth_min,depth_max+1):
             task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log", f"model {model_count}/{len(models)} depth {d}/{depth_max} - {model} -")
             model_tasks.append(task)
+            all_log_paths.append(f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log")
 
         preexec_fn = lambda: set_memory_limit(maxmem*1024)
 
@@ -98,8 +101,34 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
 
         print(f"Finished running tasks for model {model}")
         model_count += 1
-        
 
+
+    if generate_csv:
+        csv_file = os.path.join(f"/opt/cav25-experiments/logs/{experiment_group_name}/", "results-generated.csv")
+        with open(csv_file, 'w') as f:
+            f.write("model,max_depth,omdt time,omdt best,omdt bound,omdt depth\n")
+            for log_path in all_log_paths:
+                if os.path.exists(log_path):
+                    model_name = log_path.split('/')[-2]
+                    depth = log_path.split('-')[-1].split('.')[0]
+                    with open(log_path, 'r') as log_file:
+                        log_lines = log_file.readlines()
+                        for i, line in enumerate(log_lines):
+                            if line.startswith("Explored"):
+                                data = line.split(' ')
+                                time = data[7]
+                            elif line.startswith("Best objective"):
+                                data = line.split(' ')
+                                best = data[2][:-1]
+                                bound = data[5][:-1]
+                            elif line.startswith("Optimal decision tree"):
+                                data = line.split(' ')
+                                depth = data[3].split('=')[1][:-1]
+                        
+                    f.write(f"{model_name},{depth},{time},{best},{bound},{depth}\n")
+                else:
+                    print(f"Log file {log_path} does not exist.")
+                    exit(1)
 
 if __name__ == '__main__':
     main()
