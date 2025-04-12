@@ -120,10 +120,9 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
                             elif line.startswith("Best objective"):
                                 data = line.split(' ')
                                 best = data[2][:-1]
+                                if best == "-":
+                                    best = "-10000"
                                 bound = data[5][:-1]
-                            elif line.startswith("Optimal decision tree"):
-                                data = line.split(' ')
-                                depth = data[3].split('=')[1][:-1]
                         
                     f.write(f"{model_name},{depth},{time},{best},{bound},{depth}\n")
                 else:
