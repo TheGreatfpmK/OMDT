@@ -127,7 +127,6 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
                     f.write(f"{model_name},{depth},{time},{best},{bound},{depth}\n")
                 else:
                     print(f"Log file {log_path} does not exist.")
-                    exit(1)
 
 if __name__ == '__main__':
     main()
