@@ -50,46 +50,54 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
     different_gamma = {"consensus-3-32" : 0.9999, "philosophers-4": 0.99, "rabin-4": 0.99}
     qcomp_models = ["consensus-3-32", "csma-2-4", "firewire-3", "ij-10", "pnueli-zuck-3", "philosophers-4", "rabin-4", "resource-gathering-5", "wlan-1-2"]
 
+    model_count = 1
     for model in models:
         model_tasks = []
         for d in range(depth_min,depth_max+1):
-            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log")
+            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log", f"model {model_count}/{len(models)} depth {d}/{depth_max} - {model} -")
             model_tasks.append(task)
 
         preexec_fn = lambda: set_memory_limit(maxmem*1024)
 
         if workers == 1:
             for task in model_tasks:
-                command, log_file = task
+                command, log_file, model_str = task
                 if os.path.exists(log_file) and not restart:
-                    print(f"Log file {log_file} already exists. Skipping task.")
+                    print(f"{model_str} Log file already exists. Skipping task.")
                     continue
-                print(task, "started")
+                print(f"{model_str} started")
                 try:
                     result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100, capture_output=True)
                     with open(log_file, 'w') as f:
                         f.write(result.stdout.decode())
                         f.write(result.stderr.decode())
 
+                        if result.returncode != 0:
+                            print(f"Error running task {model_str} for model {model} see {log_file} for details")
+
                 except Exception as e:
-                    print(f"Error running task for model {model}: {e}")
+                    print(f"Error running task {model_str} for model {model}: {e}")
         else:
             with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
                 for task in model_tasks:
-                    command, log_file = task
+                    command, log_file, model_str = task
                     if os.path.exists(log_file) and not restart:
-                        print(f"Log file {log_file} already exists. Skipping task.")
+                        print(f"{model_str} Log file already exists. Skipping task.")
                         continue
-                    print(task, "started")
+                    print(f"{model_str} started")
                     try:
                         result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=timeout+100, capture_output=True)
                         with open(log_file, 'w') as f:
                             f.write(result.stdout.decode())
                             f.write(result.stderr.decode())
+
+                            if result.returncode != 0:
+                                print(f"Error running task {model_str} for model {model} see {log_file} for details")
                     except Exception as e:
-                        print(f"Error running task for model {model}: {e}")
+                        print(f"Error running task {model_str} for model {model}: {e}")
 
         print(f"Finished running tasks for model {model}")
+        model_count += 1
         
 
 
