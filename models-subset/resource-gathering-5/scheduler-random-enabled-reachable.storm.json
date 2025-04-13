@@ -1,0 +1,1520 @@
+[
+    {
+        "c": [
+            {
+                "index": 2,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 17,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 42,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 67,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 1,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 72,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 95,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 120,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 4,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 161,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 5,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 205,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 5,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 258,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 4,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 336,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 4,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 408,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 483,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 5,
+            "required_gold": 5,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 552,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 627,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 722,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 822,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 1,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 827,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 930,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1070,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 4,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1241,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 5,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1420,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 5,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1603,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 4,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1776,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 4,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 1938,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2108,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 4,
+            "required_gold": 4,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2262,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2432,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2647,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2872,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 1,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 2877,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 3085,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 3325,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 4,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 3611,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 5,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 3900,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 5,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 4173,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 4,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 4451,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 4,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 4738,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 5013,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 3,
+            "required_gold": 3,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 5262,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 5522,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 5827,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 6167,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 1,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 6172,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 6495,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 6855,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 4,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 7271,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 5,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 7675,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 5,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 8048,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 4,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 8396,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 4,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 8763,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 9143,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 2,
+            "required_gold": 2,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 9482,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 9862,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 10307,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 10752,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 1,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 1
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 10757,
+                "labels": [
+                    "top"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "top"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 11155,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 11565,
+                "labels": [
+                    "right"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "right"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 4,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 12016,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 5,
+            "y": 5
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 12430,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 5,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 12808,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 4,
+            "y": 4
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 13176,
+                "labels": [
+                    "left"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "left"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 4,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 13538,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 3
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 13903,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 1,
+            "gold": 1,
+            "required_gem": 1,
+            "required_gold": 1,
+            "x": 3,
+            "y": 2
+        }
+    },
+    {
+        "c": [
+            {
+                "index": 14235,
+                "labels": [
+                    "down"
+                ],
+                "prob": 1.0,
+                "origin": {
+                    "action-label": "down"
+                }
+            }
+        ],
+        "s": {
+            "attacked": 0,
+            "gem": 0,
+            "gold": 0,
+            "required_gem": 0,
+            "required_gold": 0,
+            "x": 3,
+            "y": 1
+        }
+    }
+]
