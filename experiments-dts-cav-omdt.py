@@ -28,7 +28,7 @@ def set_memory_limit(maxmem_mb):
 @click.option('--workers', type=int, default=4, show_default=True, help='Number of parallel tests.')
 @click.option('--timeout', type=int, default=1200, show_default=True, help='Time limit for abstraction refinement (per model), seconds.')
 @click.option('--maxmem', type=int, default=16, show_default=True, help='Memory limit, GB.')
-@click.option('--output', type=str, default="logs", show_default=True, help='Name for the output logs folder.')
+@click.option('--output', type=str, default="results/logs", show_default=True, help='Name for the output logs folder.')
 @click.option('--experiment-name', type=str, default=None, show_default=True, help='Name of the experiments.')
 @click.option('--depth-min', type=int, default=1, show_default=True, help='Minimal depth for the exeperiments.')
 @click.option('--depth-max', type=int, default=8, show_default=True, help='Maximal depth for the exeperiments.')
@@ -56,9 +56,9 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
     for model in models:
         model_tasks = []
         for d in range(depth_min,depth_max+1):
-            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log", f"model {model_count}/{len(models)} depth {d}/{depth_max} - {model} -")
+            task = (f"python3 run-experiment.py omdt {model} --seed 0 --gamma {0.99 if model not in list(different_gamma.keys()) else different_gamma[model]} --max_depth {d} --time_limit {timeout} --output_dir /opt/cav25-experiments/results/logs/{experiment_group_name}/ --verbose 1 --model-file-name {"model-random-enabled.drn" if model in qcomp_models else "model-random.drn"}", f"/opt/cav25-experiments/results/logs/{experiment_group_name}/{model}/log-depth-{d}.log", f"model {model_count}/{len(models)} depth {d}/{depth_max} - {model} -")
             model_tasks.append(task)
-            all_log_paths.append(f"/opt/cav25-experiments/logs/{experiment_group_name}/{model}/log-depth-{d}.log")
+            all_log_paths.append(f"/opt/cav25-experiments/results/logs/{experiment_group_name}/{model}/log-depth-{d}.log")
 
         if not show_only:
             preexec_fn = lambda: set_memory_limit(maxmem*1024)
@@ -105,7 +105,7 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
 
 
     if generate_csv:
-        csv_file = os.path.join(f"/opt/cav25-experiments/logs/{experiment_group_name}/", "results-generated.csv")
+        csv_file = os.path.join(f"/opt/cav25-experiments/results/logs/{experiment_group_name}/", "results-generated.csv")
         with open(csv_file, 'w') as f:
             f.write("model,max_depth,omdt time,omdt best,omdt bound,omdt depth\n")
             for log_path in all_log_paths:
