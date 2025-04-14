@@ -403,67 +403,68 @@ start_time = time.time()
 
 solver.solve(mdp)
 
-if method_name == "dtcontrol-parser":
-    runtime = solver.runtime
-    objective = None
-else:
-    runtime = time.time() - start_time
-    objective = mdp.evaluate_policy(solver.act, args.gamma, 10000)
+# if method_name == "dtcontrol-parser":
+#     runtime = solver.runtime
+#     objective = None
+# else:
+#     runtime = time.time() - start_time
+#     # objective = mdp.evaluate_policy(solver.act, args.gamma, 10000)
+#     objective = solver.optimal_
 
-optimal = solver.optimal_
-bound = solver.bound_
+# optimal = solver.optimal_
+# bound = solver.bound_
 
-n_nodes = solver.tree_policy_.count_nodes()
-depth = solver.tree_policy_.count_depth()
+# n_nodes = solver.tree_policy_.count_nodes()
+# depth = solver.tree_policy_.count_depth()
 
-print("Writing result files...")
+# print("Writing result files...")
 
 # Write a .dot file to visualize the learned decision tree and also
 # export to PNG and PDF.
-if args.export_graphviz:
-    import pydot
+# if args.export_graphviz:
+#     import pydot
 
-    integer_features = np.all(
-        np.isclose(mdp.observations % np.round(mdp.observations), 0), axis=0
-    )
+#     integer_features = np.all(
+#         np.isclose(mdp.observations % np.round(mdp.observations), 0), axis=0
+#     )
 
-    dot_string = solver.tree_policy_.to_graphviz(
-        mdp.feature_names, mdp.action_names, integer_features
-    )
-    graph = pydot.graph_from_dot_data(dot_string)[0]
+#     dot_string = solver.tree_policy_.to_graphviz(
+#         mdp.feature_names, mdp.action_names, integer_features
+#     )
+#     graph = pydot.graph_from_dot_data(dot_string)[0]
 
-    filename = f"{mdp_output_dir}{method_name}_visualized_policy"
-    graph.write_png(f"{filename}.png")
-    graph.write_pdf(f"{filename}.pdf")
-    graph.write_dot(f"{filename}.dot")
+#     filename = f"{mdp_output_dir}{method_name}_visualized_policy"
+#     graph.write_png(f"{filename}.png")
+#     graph.write_pdf(f"{filename}.pdf")
+#     graph.write_dot(f"{filename}.dot")
 
-result_filename = f"{args.output_dir}results.csv"
+# result_filename = f"{args.output_dir}results.csv"
 
-if os.path.exists(result_filename):
-    write_header = False
-else:
-    write_header = True
+# if os.path.exists(result_filename):
+#     write_header = False
+# else:
+#     write_header = True
 
 # Append a new line to the result file with the results of this run.
 # Optionally write a header first.
-with open(result_filename, "a") as file:
-    if method_name == "dtcontrol-parser":
-        if write_header:
-            file.write(
-                "method,mdp,runtime,depth,n_nodes\n"
-            )
+# with open(result_filename, "a") as file:
+#     if method_name == "dtcontrol-parser":
+#         if write_header:
+#             file.write(
+#                 "method,mdp,runtime,depth,n_nodes\n"
+#             )
 
-        depth_str = args.max_depth if args.max_depth else ""
-        file.write(
-            f"{args.algorithm},{args.env_name},{runtime},{depth},{n_nodes}\n"
-        )
-    else:
-        if write_header:
-            file.write(
-                "model,max_depth,omdt time,omdt best,omdt bound,omdt depth,omdt nodes\n"
-            )
+#         depth_str = args.max_depth if args.max_depth else ""
+#         file.write(
+#             f"{args.algorithm},{args.env_name},{runtime},{depth},{n_nodes}\n"
+#         )
+#     else:
+#         if write_header:
+#             file.write(
+#                 "model,max_depth,omdt time,omdt best,omdt bound,omdt depth,omdt nodes\n"
+#             )
 
-        depth_str = args.max_depth if args.max_depth else ""
-        file.write(
-            f"{args.env_name},{depth_str},{runtime},{objective},{bound},{depth},{n_nodes}\n"
-        )
+#         depth_str = args.max_depth if args.max_depth else ""
+#         file.write(
+#             f"{args.env_name},{depth_str},{runtime},{objective},{bound},{depth},{n_nodes}\n"
+#         )

@@ -247,24 +247,27 @@ class OmdtSolver:
         # Only export the tree if there was actually a feasible solution found
         # within the time limit
         if self.model_.SolCount > 0:
-            self.__model_vars_to_tree_new(
-                mdp,
-                nodes,
-                leaves,
-                threshold,
-                all_thresholds,
-                pred_action,
-                depth,
-            )
+            pass
+            # self.__model_vars_to_tree_new(
+            #     mdp,
+            #     nodes,
+            #     leaves,
+            #     threshold,
+            #     all_thresholds,
+            #     pred_action,
+            #     depth,
+            # )
         else:
             # In case of no model just return a leaf that always
             # predicts the same action
-            self.tree_policy_ = Tree(TreeLeaf(0))
-            self.optimal_ = False
-            self.objective_ = mdp.evaluate_policy(
-                self.tree_policy_.act, self.gamma, 1000000000
-            )
-            self.bound_ = self.model_.ObjBound
+            pass
+            # self.tree_policy_ = Tree(TreeLeaf(0))
+            # self.optimal_ = False
+            # self.objective_ = mdp.evaluate_policy(
+            #     self.tree_policy_.act, self.gamma, 1000000000
+            # )
+            # self.bound_ = self.model_.ObjBound
+
 
     def __model_vars_to_tree_new(
         self,
@@ -411,7 +414,7 @@ class OmdtSolver:
             if self.only_build_milp:
                 return
 
-            self.trees_.append(self.tree_policy_)
+            # self.trees_.append(self.tree_policy_)
         else:
             old_model = None
             for depth in range(1, self.depth + 1):
