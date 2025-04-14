@@ -21,6 +21,24 @@ def set_memory_limit(maxmem_mb):
     soft, hard = resource.getrlimit(resource.RLIMIT_AS)
     resource.setrlimit(resource.RLIMIT_AS, (maxmem_mb*1024*1024, hard))
 
+
+def run_omdt_task(task, model, timeout, preexec_fn, restart):
+    command, log_file, model_str = task
+    if os.path.exists(log_file) and not restart:
+        print(f"{model_str} Log file already exists. Skipping task.")
+        return
+    print(f"{model_str} started")
+    try:
+        result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=(timeout+120)*2, capture_output=True)
+        with open(log_file, 'w') as f:
+            f.write(result.stdout.decode())
+            f.write(result.stderr.decode())
+
+            if result.returncode != 0:
+                print(f"Error running task {model_str} for model {model} see {log_file} for details")
+    except Exception as e:
+        print(f"Error running task {model_str} for model {model}: {e}")
+
 @click.command()
 @click.option('--omdt-dir', type=str, default="/home/may/synthesis", show_default=True, help='Path to the Paynt root folder.')
 @click.option('--models-dir', type=str, default="/home/may/synthesis/models/cav", show_default=True, help='Path to the models folder.')
@@ -84,21 +102,7 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
             else:
                 with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
                     for task in model_tasks:
-                        command, log_file, model_str = task
-                        if os.path.exists(log_file) and not restart:
-                            print(f"{model_str} Log file already exists. Skipping task.")
-                            continue
-                        print(f"{model_str} started")
-                        try:
-                            result = subprocess.run(command.split(), preexec_fn=preexec_fn, timeout=(timeout+120)*2, capture_output=True)
-                            with open(log_file, 'w') as f:
-                                f.write(result.stdout.decode())
-                                f.write(result.stderr.decode())
-
-                                if result.returncode != 0:
-                                    print(f"Error running task {model_str} for model {model} see {log_file} for details")
-                        except Exception as e:
-                            print(f"Error running task {model_str} for model {model}: {e}")
+                        executor.submit(run_omdt_task, task, model, timeout, preexec_fn, restart)
 
             print(f"Finished running tasks for model {model}")
         model_count += 1
