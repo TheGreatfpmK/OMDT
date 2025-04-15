@@ -22,8 +22,9 @@ def set_memory_limit(maxmem_mb):
     resource.setrlimit(resource.RLIMIT_AS, (maxmem_mb*1024*1024, hard))
 
 
-def run_omdt_task(task, model, timeout, preexec_fn, restart):
+def run_omdt_task(task, model, timeout, maxmem_mb, restart):
     command, log_file, model_str = task
+    preexec_fn = lambda: set_memory_limit(maxmem_mb*1024)
     if os.path.exists(log_file) and not restart:
         print(f"{model_str} Log file already exists. Skipping task.")
         return
@@ -102,7 +103,7 @@ def main(omdt_dir, models_dir, workers, timeout, maxmem, output, experiment_name
             else:
                 with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
                     for task in model_tasks:
-                        executor.submit(run_omdt_task, task, model, timeout, preexec_fn, restart)
+                        executor.submit(run_omdt_task, task, model, (timeout+120)*2, maxmem*1024, restart)
 
             print(f"Finished running tasks for model {model}")
         model_count += 1
